@@ -8,9 +8,9 @@ const App = () => {
   const [data, setData] = useState("");
   const fetchData = async () => {
     try {
-      const response = await axios("https://dummyjson.com/products");
-      console.log(response.data);
-      setData(response.data);
+      const response = await fetch("https://dummyjson.com/products");
+      const parseData = await response.json();
+      setData(parseData);
       setLoading(false);
     } catch (error) {
       console.log(error);
